@@ -1,0 +1,22 @@
+model: openai/gpt-4o-mini
+
+providers:
+  omniroute:
+    base_url: ${OMNIROUTE_BASE_URL}
+    api_key: ${OMNIROUTE_API_KEY}
+    models:
+      openai/gpt-4o-mini: {}
+      anthropic/claude-sonnet-4: {}
+      google/gemini-2.5-flash: {}
+
+telegram:
+  require_mention: true
+  exclusive_bot_mentions: true
+  observe_unmentioned_group_messages: true
+
+gateway:
+  platforms:
+    telegram:
+      extra:
+        max_concurrent_updates: 32
+        drop_pending_on_cold_boot: false
